@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>RDMA Model</title>
+
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+<script src="CodeMirror/lib/codemirror.js"></script>
+<link rel="stylesheet" href="CodeMirror/lib/codemirror.css">
+<script src="CodeMirror/mode/javascript/javascript.js"></script>
+
+<style type="text/css">
+      .CodeMirror {border-top: 1px solid gray; border-bottom: 1px solid gray; 
+                   border-left: 1px solid gray; border-right: 1px solid gray;}
+    </style>
+        
+</head>
+<body>
+
+<h2>RDMA Model</h2>
+<br/>
+
+Intermediate Representation Program
+
+<br> <br>
+
+
+
+
+<table>
+<tr valign="top">
+<td>
+<textarea id="cpp_code" name="cpp_code" rows="16" cols="45"> 
+process 0
+
+shared X = 0;
+local a, b, c;
+
+X = get(atm,atm)(X,0);
+load(atm) a = X;
+store(atm) X = 1;
+load(atm) c = X;
+load(atm) b = X;
+assert (!((c == 0) && (b == 1) && (a == 1)));
+// ---
+
+</textarea>
+<br> <br>
+
+
+<script type="text/javascript" src="textarea.js"></script>
+
+Network settings: <br> 
+
+<input type="checkbox" name="IR" value="True"> In-order Routing
+
+<br> <br>
+
+<button id="submitButton">Verify assertions</button>
+
+<br>
+
+</td>
+
+<td>
+
+<div id="resultdiv"> </div>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
